@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import account from './appwrite';
 import { ID } from 'appwrite';
+import { Link } from 'react-router-dom';
 export default function Signup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -8,16 +9,16 @@ export default function Signup() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-       try {
+        try {
             await account.create(ID.unique(), email, password, userName);
-           
-       } catch (error) {
-        console.log(error);
+
+        } catch (error) {
+            console.log(error);
             if ("Invalid password: Password must be at least 8 characters" === error.message) {
                 alert("Invalid password: Password must be at least 8 characters")
             }
-       }
-       
+        }
+
     }
 
 
@@ -73,20 +74,22 @@ export default function Signup() {
                                     </div>
                                     <div className="ml-3 text-sm">
                                         <label htmlFor="terms"
-                                         className="font-light text-gray-500 dark:text-gray-300">I accept the
-                                          <p className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                                           >Terms and Conditions</p></label>
+                                            className="font-light text-gray-500 dark:text-gray-300">I accept the
+                                            <p className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                                            >Terms and Conditions</p></label>
                                     </div>
                                 </div>
                                 <button
                                     onClick={handleSubmit}
-
                                     className="w-full text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                                     Create an Account
                                 </button>
 
                                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                                    Already have an account? <a href="/login" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Login here</a>
+                                    Already have an account?
+                                    <div className="font-medium text-primary-600 hover:underline dark:text-primary-500">
+                                        <Link to={"/login"}>Login here</Link>
+                                    </div>
                                 </p>
                             </form>
                         </div>

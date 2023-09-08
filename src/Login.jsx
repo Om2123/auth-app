@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import account from './appwrite';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 export default function Login() {
 
   const [email, setEmail] = useState('');
@@ -72,7 +72,13 @@ export default function Login() {
                     onClick={handleLogin} type="button"
                     className="text-gray-900 w-full bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Log in</button>
                   <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                    Don’t have an account yet? <a href="/" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
+                    Don’t have an account yet?
+                    <div className="font-medium text-primary-600 hover:underline dark:text-primary-500">
+                      <Link to={"/"}>
+
+                        Sign up
+                      </Link>
+                    </div>
                   </p>
                 </form>
               </div>
