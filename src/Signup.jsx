@@ -9,7 +9,7 @@ export default function Signup() {
     const handleSubmit = async (e) => {
         e.preventDefault();
        try {
-           const pro = await account.create(ID.unique(), email, password, userName);
+            await account.create(ID.unique(), email, password, userName);
            
        } catch (error) {
         console.log(error);
@@ -27,8 +27,8 @@ export default function Signup() {
 
             <section className="bg-gray-50 dark:bg-gray-900">
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-                    <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-                    </a>
+                    {/* <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+                    </a> */}
                     <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
@@ -72,7 +72,10 @@ export default function Signup() {
                                         <input id="terms" aria-describedby="terms" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required="" />
                                     </div>
                                     <div className="ml-3 text-sm">
-                                        <label htmlFor="terms" className="font-light text-gray-500 dark:text-gray-300">I accept the <a className="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Terms and Conditions</a></label>
+                                        <label htmlFor="terms"
+                                         className="font-light text-gray-500 dark:text-gray-300">I accept the
+                                          <p className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                                           >Terms and Conditions</p></label>
                                     </div>
                                 </div>
                                 <button
